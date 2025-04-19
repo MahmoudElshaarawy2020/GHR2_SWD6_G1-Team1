@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "b6826020-bb7c-4f77-a83e-09090c3e7804",
+		"name": "Create,login Tesing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43798769",
+		"_collection_link": "https://depi77-9731.postman.co/workspace/Depi-Workspace~f9972c38-8ec9-44cd-828d-fe2643bd7909/collection/43798769-b6826020-bb7c-4f77-a83e-09090c3e7804?action=share&source=collection_link&creator=43798769"
+	},
+	"item": [
+		{
+			"name": "Rest API",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"name\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"AminaTest\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \" AminaTest\",\r\n\t\"email\": \"aminaTest1@gmail.com\",\r\n\t\"password\": \"1234\",\r\n    \"avatar\": \"https://api.lorem.space/image/face?w=640&h=480\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.escuelajs.co/api/v1/users/",
+									"protocol": "https",
+									"host": [
+										"api",
+										"escuelajs",
+										"co"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"email\": \"aminaTest1@gmail.com\",\r\n\t\"password\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.escuelajs.co/api/v1/auth/login",
+									"protocol": "https",
+									"host": [
+										"api",
+										"escuelajs",
+										"co"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
